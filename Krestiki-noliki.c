@@ -41,7 +41,11 @@ int main(void) {
     while (hod<9){
         if (hod%2==0){
             printf("Ход %s: ",name1);
-            scanf("%d",&choice);
+            if(scanf("%d",&choice)!=1){
+                printf("Вводить цифры 1-9!\n");
+                while(getchar()!='\n');
+                continue;
+            }
             int index=choice-1;
             if(choice>=1 && choice<=9 && boar[index]!='X' && boar[index]!='O'){
                 boar[index]='X';
@@ -59,7 +63,11 @@ int main(void) {
             }
         }else{
             printf("Ход %s: ",name2);
-            scanf("%d",&choice);
+            if(scanf("%d",&choice)!=1){
+                printf("Вводить цифры 1-9!\n");
+                while(getchar()!='\n');
+                continue;
+            }
             int ind=choice-1;
             if(choice>=1 && choice<=9 && boar[ind]!='X' && boar[ind]!='O'){
                 boar[ind]='O';
