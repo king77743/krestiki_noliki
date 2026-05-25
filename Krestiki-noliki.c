@@ -30,7 +30,7 @@ int main(void) {
     char boar[9] = {'1', '2', '3', '4', '5', '6', '7', '8', '9'};
     char name1[50];
     char name2[50];
-    int hod=0,choice,flag=0;
+    int hod=0,choice,flag=0,index=0;
     printf("Игра крестики-нолики\n");
     printf("Введите имя 1 игрока(X): ");
     scanf("%s",name1);
@@ -46,7 +46,7 @@ int main(void) {
                 while(getchar()!='\n');
                 continue;
             }
-            int index=choice-1;
+            index=choice-1;
             if(choice>=1 && choice<=9 && boar[index]!='X' && boar[index]!='O'){
                 boar[index]='X';
                 hod++;
@@ -68,9 +68,9 @@ int main(void) {
                 while(getchar()!='\n');
                 continue;
             }
-            int ind=choice-1;
-            if(choice>=1 && choice<=9 && boar[ind]!='X' && boar[ind]!='O'){
-                boar[ind]='O';
+            index=choice-1;
+            if(choice>=1 && choice<=9 && boar[index]!='X' && boar[index]!='O'){
+                boar[index]='O';
                 hod++;
                 system("cls");
                 draw_table(boar);
