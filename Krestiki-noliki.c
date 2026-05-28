@@ -62,7 +62,7 @@ int main(void) {
                 system("cls");
                 draw_table(boar);
                 if (check_win(boar)==1){
-                printf("Победил %s!\n",name2);
+                printf("Победил %s!\n",cyrent_name);
                 flag+=1;
                 break;
                 }
