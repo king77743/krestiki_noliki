@@ -39,52 +39,38 @@ int main(void) {
     draw_table(boar);
     printf("\nИгрок 1 — %s\nИгрок 2 — %s\n", name1, name2);
     while (hod<9){
+        char* cyrent_name;
+        char sign;
         if (hod%2==0){
-            printf("Ход %s: ",name1);
-            if(scanf("%d",&choice)!=1){
+                cyrent_name=name1;
+                sign='X';
+        }
+        else{
+                cyrent_name=name2;
+                sign='O';
+        }
+        printf("Ход %s: ",cyrent_name);
+        if(scanf("%d",&choice)!=1){
                 printf("Вводить цифры 1-9!\n");
                 while(getchar()!='\n');
                 continue;
-            }
-            index=choice-1;
-            if(choice>=1 && choice<=9 && boar[index]!='X' && boar[index]!='O'){
-                boar[index]='X';
+        }
+        index=choice-1;
+        if(choice>=1 && choice<=9 && boar[index]!='X' && boar[index]!='O'){
+                boar[index]=sign;
                 hod++;
                 system("cls");
                 draw_table(boar);
                 if (check_win(boar)==1){
-                    printf("Победил %s!\n",name1);
-                    flag+=1;
-                    break;
+                printf("Победил %s!\n",name2);
+                flag+=1;
+                break;
                 }
-            }else{
-                printf("Клетка занята или введена не правильно!\n");
-                continue;
-            }
         }else{
-            printf("Ход %s: ",name2);
-            if(scanf("%d",&choice)!=1){
-                printf("Вводить цифры 1-9!\n");
-                while(getchar()!='\n');
-                continue;
-            }
-            index=choice-1;
-            if(choice>=1 && choice<=9 && boar[index]!='X' && boar[index]!='O'){
-                boar[index]='O';
-                hod++;
-                system("cls");
-                draw_table(boar);
-                if (check_win(boar)==1){
-                    printf("Победил %s!\n",name2);
-                    flag+=1;
-                    break;
-                }
-            }else{
                 printf("Клетка занята или введена не правильно!\n");
                 continue;
         }
-    }
-    }
+        }
     if (flag==0){printf("Ничья\n");}
     return 0;
 }
